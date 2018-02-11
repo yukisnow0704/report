@@ -1,0 +1,279 @@
+{ "aaData": [
+	{
+		"createDate": "2017-09-01",
+		"client": {
+            "title": "株式会社　伊藤",
+            "position": "代表取締役",
+            "name": "伊藤祐輝"
+        },
+        "construction": {
+            "title": "伊藤会社",
+            "address": "東京都渋谷区東2丁目8-5",
+            "client": "株式会社　伊藤",
+            "tel": "000-0000-0000"
+        },
+        "particulars": [
+            {
+                "title": "9月22日 移動",
+                "quantity": "3人工",
+                "unit_price": "5,000",
+                "sum": "15,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月23日 作業",
+                "quantity": "3人工",
+                "unit_price": "100,000",
+                "sum": "300,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月24日 作業〜移動",
+                "quantity": "3人工",
+                "unit_price": "50,000",
+                "sum": "150,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "ガソリン代",
+                "quantity": "1式",
+                "unit_price": "20,000",
+                "sum": "20,000",
+                "description":"※非課税"
+            },
+            {
+                "title": "高速代",
+                "quantity": "1式",
+                "unit_price": "15,000",
+                "sum": "15,000",
+                "description":"※非課税"
+            }
+        ],
+        "sum": "5,000,000",
+        "memo": "メモを入れることができます。",
+        "html": "<a href='/invoiceInfo' class='btn m-b-xs w-xs btn-info'>詳細</a>"
+    },
+    {
+		"createDate": "2017-09-01",
+		"client": {
+            "title": "株式会社　伊藤",
+            "position": "代表取締役",
+            "name": "伊藤祐輝"
+        },
+        "construction": {
+            "title": "伊藤会社",
+            "address": "東京都渋谷区東2丁目8-5",
+            "client": "株式会社　伊藤",
+            "tel": "000-0000-0000"
+        },
+        "particulars": [
+            {
+                "title": "9月22日 移動",
+                "quantity": "3人工",
+                "unit_price": "5,000",
+                "sum": "15,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月23日 作業",
+                "quantity": "3人工",
+                "unit_price": "100,000",
+                "sum": "300,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月24日 作業〜移動",
+                "quantity": "3人工",
+                "unit_price": "50,000",
+                "sum": "150,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "ガソリン代",
+                "quantity": "1式",
+                "unit_price": "20,000",
+                "sum": "20,000",
+                "description":"※非課税"
+            },
+            {
+                "title": "高速代",
+                "quantity": "1式",
+                "unit_price": "15,000",
+                "sum": "15,000",
+                "description":"※非課税"
+            }
+        ],
+        "sum": "5,000,000",
+        "memo": "メモを入れることができます。",
+        "html": "<a href='/invoiceInfo' class='btn m-b-xs w-xs btn-info'>詳細</a>"
+    },
+    {
+		"createDate": "2017-09-01",
+		"client": {
+            "title": "株式会社　伊藤",
+            "position": "代表取締役",
+            "name": "伊藤祐輝"
+        },
+        "construction": {
+            "title": "伊藤会社",
+            "address": "東京都渋谷区東2丁目8-5",
+            "client": "株式会社　伊藤",
+            "tel": "000-0000-0000"
+        },
+        "particulars": [
+            {
+                "title": "シチズン電子",
+                "quantity": "",
+                "unit_price": "",
+                "sum": "",
+                "description":""
+            },
+            {
+                "title": "9月22日 移動",
+                "quantity": "3人工",
+                "unit_price": "5,000",
+                "sum": "15,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月23日 作業",
+                "quantity": "3人工",
+                "unit_price": "100,000",
+                "sum": "300,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月24日 作業〜移動",
+                "quantity": "3人工",
+                "unit_price": "50,000",
+                "sum": "150,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "ガソリン代",
+                "quantity": "1式",
+                "unit_price": "20,000",
+                "sum": "20,000",
+                "description":"※非課税"
+            },
+            {
+                "title": "高速代",
+                "quantity": "1式",
+                "unit_price": "15,000",
+                "sum": "15,000",
+                "description":"※非課税"
+            }
+        ],
+        "sum": "5,000,000",
+        "memo": "メモを入れることができます。",
+        "html": "<a href='/invoiceInfo' class='btn m-b-xs w-xs btn-info'>詳細</a>"
+    },
+    {
+		"createDate": "2017-09-01",
+		"client": {
+            "title": "株式会社　伊藤",
+            "position": "代表取締役",
+            "name": "伊藤祐輝"
+        },
+        "construction": {
+            "title": "伊藤会社",
+            "address": "東京都渋谷区東2丁目8-5",
+            "client": "株式会社　伊藤",
+            "tel": "000-0000-0000"
+        },
+        "particulars": [
+            {
+                "title": "9月22日 移動",
+                "quantity": "3人工",
+                "unit_price": "5,000",
+                "sum": "15,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月23日 作業",
+                "quantity": "3人工",
+                "unit_price": "100,000",
+                "sum": "300,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月24日 作業〜移動",
+                "quantity": "3人工",
+                "unit_price": "50,000",
+                "sum": "150,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "ガソリン代",
+                "quantity": "1式",
+                "unit_price": "20,000",
+                "sum": "20,000",
+                "description":"※非課税"
+            },
+            {
+                "title": "高速代",
+                "quantity": "1式",
+                "unit_price": "15,000",
+                "sum": "15,000",
+                "description":"※非課税"
+            }
+        ],
+        "sum": "5,000,000",
+        "memo": "メモを入れることができます。",
+        "html": "<a href='/invoiceInfo' class='btn m-b-xs w-xs btn-info'>詳細</a>"
+	},
+    {
+		"createDate": "2017-09-01",
+		"client": {
+            "title": "株式会社　伊藤",
+            "position": "代表取締役",
+            "name": "伊藤祐輝"
+        },
+        "construction": {
+            "title": "伊藤会社",
+            "address": "東京都渋谷区東2丁目8-5",
+            "client": "株式会社　伊藤",
+            "tel": "000-0000-0000"
+        },
+        "particulars": [
+            {
+                "title": "9月22日 移動",
+                "quantity": "3人工",
+                "unit_price": "5,000",
+                "sum": "15,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月23日 作業",
+                "quantity": "3人工",
+                "unit_price": "100,000",
+                "sum": "300,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "9月24日 作業〜移動",
+                "quantity": "3人工",
+                "unit_price": "50,000",
+                "sum": "150,000",
+                "description":"伊藤（宏）、伊藤（祐）、伊藤（元）"
+            },
+            {
+                "title": "ガソリン代",
+                "quantity": "1式",
+                "unit_price": "20,000",
+                "sum": "20,000",
+                "description":"※非課税"
+            },
+            {
+                "title": "高速代",
+                "quantity": "1式",
+                "unit_price": "15,000",
+                "sum": "15,000",
+                "description":"※非課税"
+            }
+        ],
+        "sum": "5,000,000",
+        "memo": "メモを入れることができます。",
+        "html": "<a href='/invoiceInfo' class='btn m-b-xs w-xs btn-info'>詳細</a>"
+	}
+] }
