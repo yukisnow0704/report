@@ -17,7 +17,7 @@
                         <button class="btn btn-success">一覧DL</button>
                         <a href="/report/export" class="btn btn-success">記事DL</a>
                     </div>
-                    <div class="table-responsive">
+                    <!-- <div class="table-responsive"> -->
                         <table ui-jq="dataTable" ui-options="{
                                 'language': {
                                     'lengthMenu': '_MENU_',
@@ -45,17 +45,17 @@
                             }" class="table table-striped b-t b-b">
                             <thead>
                             <tr>
-                                <th style="width:20%">ファイル名</th>
-                                <th style="width:10%">インポート日時</th>
-                                <th style="width:10%">No</th>
-                                <th style="width:10%">納品年月</th>
-                                <th style="width:10%">キーワード</th>
-                                <th style="width:10%">種別</th>
-                                <th style="width:10%">URL</th>
-                                <th style="width:10%">担当者</th>
-                                <th style="width:10%">更新日時</th>
-                                <th style="width:10%">完了</th>
-                                <th style="width:10%"></th>
+                                <th>ファイル名</th>
+                                <th>インポート日時</th>
+                                <th>No</th>
+                                <th>納品年月</th>
+                                <th>キーワード</th>
+                                <th>種別</th>
+                                <th>URL</th>
+                                <th>担当者</th>
+                                <th>更新日時</th>
+                                <th>完了</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
