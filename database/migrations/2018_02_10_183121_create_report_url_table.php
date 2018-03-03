@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReportContactTable extends Migration
+class CreateReportUrlTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateReportContactTable extends Migration
      */
     public function up()
     {
-        Schema::create('report_contacts', function (Blueprint $table) {
+        Schema::create('report_url', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('report_id')->unsigned();
-            $table->string('title');
-            $table->json('main');
+            $table->integer('url_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('report_id')
                 ->references('id')
-                ->on('reports');
+                ->on('report');
+            $table->foreign('url_id')
+                ->references('id')
+                ->on('urls');
         });
     }
 
@@ -33,6 +35,6 @@ class CreateReportContactTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('report_contacts');
+        Schema::dropIfExists('contact_url');
     }
 }

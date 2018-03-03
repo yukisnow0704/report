@@ -31,14 +31,27 @@ Route::get('/report', [
     'uses' => 'AdminReportController@index'
 ]);
 
-// 担当構成編集
-Route::get('/report/{token}', [
-    'as' => 'reportStore',
-    'uses' => 'AdminReportController@edit'
-]);
 
 // 構成編集画面
 Route::get('/contact/report/{token}', [
     'as' => 'reportStore',
     'uses' => 'ReportController@edit'
+]);
+
+// インポート画面
+Route::get('/report/import', [
+    'as' => 'reportImport',
+    'uses' => 'ReportController@import'
+]);
+
+// エクスポーと画面
+Route::get('/report/export', [
+    'as' => 'reportExport',
+    'uses' => 'ReportController@export'
+]);
+
+// 担当構成編集
+Route::get('/report/{token}', [
+    'as' => 'reportStore',
+    'uses' => 'AdminReportController@edit'
 ]);

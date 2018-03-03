@@ -12,6 +12,11 @@
                     <div class="panel-heading">
                         構成一覧
                     </div>
+                    <div class="col-md-12 col-sm-12">
+                        <a href="/report/import" class="btn btn-success">記事インポート</a>
+                        <button class="btn btn-success">一覧DL</button>
+                        <a href="/report/export" class="btn btn-success">記事DL</a>
+                    </div>
                     <div class="table-responsive">
                         <table ui-jq="dataTable" ui-options="{
                                 'language': {
@@ -41,23 +46,29 @@
                             <thead>
                             <tr>
                                 <th style="width:20%">ファイル名</th>
-                                <th style="width:15%">No</th>
-                                <th style="width:15%">キーワード</th>
+                                <th style="width:10%">インポート日時</th>
+                                <th style="width:10%">No</th>
+                                <th style="width:10%">納品年月</th>
+                                <th style="width:10%">キーワード</th>
                                 <th style="width:10%">種別</th>
                                 <th style="width:10%">URL</th>
                                 <th style="width:10%">担当者</th>
+                                <th style="width:10%">更新日時</th>
                                 <th style="width:10%">完了</th>
-                                <th style="width:20%"></th>
+                                <th style="width:10%"></th>
                             </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -66,11 +77,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -79,11 +93,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -92,11 +109,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -105,11 +125,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -118,11 +141,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -131,11 +157,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -144,11 +173,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -157,11 +189,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -170,11 +205,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -183,11 +221,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -196,11 +237,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -209,11 +253,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -222,11 +269,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -235,11 +285,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>
@@ -248,11 +301,14 @@
                                 </tr>
                                 <tr>
                                     <td>構成案サンプル0208.xlsx</td>
+                                    <td> 2017-12-31 12:00:00 </td>
                                     <td> </td>
+                                    <td> 2017-12-31</td>
                                     <td> </td>
                                     <td>ベビーサイン</td>
                                     <td><a href="/contact/report/xxx">/contact/report/xxx</a></td>
                                     <td></td>
+                                    <td> 2017-12-31</td>
                                     <td></td>
                                     <td>
                                         <a href="/report/xxxx" class="btn btn-success">編集</a>

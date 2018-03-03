@@ -13,4 +13,14 @@ class ReportController extends Controller
     {
         return view('mock.report_store_staff');
     }
+
+    public function import()
+    {
+        return view('mock.report_import');
+    }
+
+    public function export()
+    {
+        return view('mock.report_export');
+    }
 }

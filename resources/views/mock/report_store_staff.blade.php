@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.report_staff')
 
 @section('content')
     <div class="bg-light lter b-b wrapper-md">

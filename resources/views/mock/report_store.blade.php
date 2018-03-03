@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.report')
 
 @section('content')
     <div class="bg-light lter b-b wrapper-md">
@@ -7,7 +7,7 @@
     
     <div class="wrapper-md" ng-controller="FormDemoCtrl">
         <div class="row">
-            <!-- <form action="#"> -->
+            <form action="#" method="get">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">                    
                         <div class="panel-heading">
@@ -47,12 +47,12 @@
                                 <div class="col-md-12" style="margin-top:10px;">
                                     <input type="text" name="keyword1" class="keyword1 col-md-9">
                                     <div class="col-md-3">
-                                        <button type="delete" class="btn btn-danger remove-keyword">
+                                        <a href="javascript:void(0);" class="btn btn-danger remove-keyword">
                                             <i class="fa fa-minus"></i>
-                                        </button>
-                                        <button type="add" class="btn btn-success add-keyword" style="margin-left:5px;">
+                                        </a>
+                                        <a href="javascript:void(0);" class="btn btn-success add-keyword" style="margin-left:5px;">
                                             <i class="fa fa-plus"></i>
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -72,31 +72,31 @@
                     <div class="panel panel-default">                    
                         <div class="panel-heading">
                             概要
-                            <button class="btn btn-success add-big-head">
+                            <a href="javascript:void(0);" class="btn btn-success add-big-head">
                                 <i class="fa fa-plus"></i>
-                            </button>
+                            </a>
                         </div>
                         <div class="panel-body">
                             <div class="col-md-12 big-head1">
                                 <div class="form-group col-md-8">
                                     <label class="col-md-12">大見出し1</label>
-                                    <input type="text" name="title" class="col-md-12">
+                                    <input type="text" name="big-title1" class="col-md-12">
                                     <div class="col-md-12" style="margin-top:20px;">
                                         <label class="col-md-6">説明</label>
-                                        <textarea class="col-md-6"></textarea>
+                                        <textarea name='big-content1' class="col-md-6"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <input type="hidden" class="big-head-number" value="1">
                                     <div class="col-md-9" style="margin-top:20px;">
-                                        <button class="btn btn-danger remove-big-head">
+                                        <a href="javascript:void(0);" class="btn btn-danger remove-big-head">
                                             <i class="fa fa-minus"></i> 大見出し削除
-                                        </button>
+                                        </a>
                                     </div>
                                     <div class="col-md-9" style="margin-top:20px;">
-                                        <button class="btn btn-success add-middle-header">
+                                        <a href="javascript:void(0);" class="btn btn-success add-middle-header">
                                             <i class="fa fa-plus"></i> 中見出し追加
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="form-group middle-head">
@@ -112,22 +112,26 @@
                         <div class="panel-body url-list">
                             <div class="col-md-12" style="margin-top:10px;">
                                 <label class="col-md-3 ">URL</label>
-                                <input type="text" name="url" class="url1 col-md-6">
+                                <input type="text" name="url1" class="url1 col-md-6">
                                 <div class="col-md-3">
-                                    <button type="delete" class="btn btn-danger remove-url">
+                                    <a href="javascript:void(0);" class="btn btn-danger remove-url">
                                         <i class="fa fa-minus"></i>
-                                    </button>
-                                    <button type="add" class="btn btn-success add-url" style="margin-left:5px;">
+                                    </a>
+                                    <a href="javascript:void(0);" class="btn btn-success add-url" style="margin-left:5px;">
                                         <i class="fa fa-plus"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <!-- </form> -->
+                    </div>                                        
+                    <button class="btn btn-success submit">
+                        送信
+                    </button>
+                </form>
             </div>
         </div>
     </div>
+ 
     <script>
         var focus = 0;
         var json = [];
@@ -138,14 +142,14 @@
             var html = '<div class="form-group middle-head' + middleKey + ' col-sm-12">';
             html += '<div class="col-md-9">';
             html += '<label class="col-md-12">中見出し' + middleKey + '</label>';
-            html += '<input type="text" name="title" class="col-md-12">';
+            html += '<input type="text" name="middle-title' + bigKey + '-' + middleKey + '" class="col-md-12">';
             html += '<label class="col-md-6">説明</label>';
-            html += '<textarea class="col-md-6"></textarea>';
+            html += '<textarea name="middle-context' + bigKey + '-' + middleKey + '" class="col-md-6"></textarea>';
             html += '</div>';
             html += '<div class="col-md-3">';
-            html += '<button class="btn btn-danger remove-middle-header">';
+            html += '<a href="javascript:void(0);" class="btn btn-danger remove-middle-header">';
             html += '<i class="fa fa-minus"></i>';
-            html += '</button>';
+            html += '</a>';
             html += '</div>';
             html += '</div>';
             
@@ -161,12 +165,12 @@
             html += '<label class="col-md-3 ">URL</label>';
             html += '<input type="text" name="url" class="url' + key + ' col-md-6">';
             html += '<div class="col-md-3">';
-            html += '<button type="delete" class="btn btn-danger remove-url">';
+            html += '<a href="javascript:void(0);" type="delete" class="btn btn-danger remove-url">';
             html += '<i class="fa fa-minus"></i>';
-            html += '</button>';
-            html += '<button type="add" class="btn btn-success add-url" style="margin-left:5px;">';
+            html += '</a>';
+            html += '<a href="javascript:void(0);" type="add" class="btn btn-success add-url" style="margin-left:5px;">';
             html += '<i class="fa fa-plus"></i>';
-            html += '</button>';
+            html += '</a>';
             html += '</div>';
             html += '</div>';
             
@@ -180,23 +184,23 @@
             var html = '<div class="col-md-12 big-head' + key + '">';
             html += '<div class="form-group col-md-8">';
             html += '<label class="col-md-12">大見出し' + key + '</label>';
-            html += '<input type="text" name="title" class="col-md-12">';
+            html += '<input type="text" name="big-title' + key + '" class="col-md-12">';
             html += '<div class="col-md-12" style="margin-top:20px;">';
             html += '<label class="col-md-6">説明</label>';
-            html += '<textarea class="col-md-6"></textarea>';
+            html += '<textarea name="big-context' + key + '" class="col-md-6"></textarea>';
             html += '</div>';
             html += '</div>';
             html += '<div class="col-md-4">';
             html += '<input type="hidden" class="big-head-number" value="' + key + '">';
             html += '<div class="col-md-9" style="margin-top:20px;">';
-            html += '<button class="btn btn-danger remove-big-head">';
+            html += '<a href="javascript:void(0);" class="btn btn-danger remove-big-head">';
             html += '<i class="fa fa-minus"></i> 大見出し削除';
-            html += '</button>';
+            html += '</a>';
             html += '</div>';
             html += '<div class="col-md-9" style="margin-top:20px;">';
-            html += '<button class="btn btn-success add-middle-header">';
+            html += '<a href="javascript:void(0);" class="btn btn-success add-middle-header">';
             html += '<i class="fa fa-plus"></i> 中見出し追加';
-            html += '</button>';
+            html += '</a>';
             html += '</div>';
             html += '</div>';
             html += '<div class="form-group middle-head">';
@@ -211,28 +215,16 @@
 
         $(".panel-body").on("click", '.add-keyword',function() {
             var key = $('.sub-keyword-list').children().length + 1;
-            var html = '<div class="col-md-12" style="margin-top:10px;">';
-            html += '<label class="col-md-3 ">URL</label>';
-            html += '<input type="text" name="url" class="url' + key + ' col-md-6">';
-            html += '<div class="col-md-3">';
-            html += '<button type="delete" class="btn btn-danger remove-url">';
-            html += '<i class="fa fa-minus"></i>';
-            html += '</button>';
-            html += '<button type="add" class="btn btn-success add-url" style="margin-left:5px;">';
-            html += '<i class="fa fa-plus"></i>';
-            html += '</button>';
-            html += '</div>';
-            html += '</div>';
 
             var html = '<div class="col-md-12" style="margin-top:10px;">';
             html += '<input type="text" name="keyword' + key + '" class="keyword' + key + ' col-md-9">';
             html += '<div class="col-md-3">';
-            html += '<button type="delete" class="btn btn-danger remove-keyword">';
+            html += '<a href="javascript:void(0);" type="delete" class="btn btn-danger remove-keyword">';
             html += '<i class="fa fa-minus"></i>';
-            html += '</button>';
-            html += '<button type="add" class="btn btn-success add-keyword" style="margin-left:5px;">';
+            html += '</a>';
+            html += '<a href="javascript:void(0);" type="add" class="btn btn-success add-keyword" style="margin-left:5px;">';
             html += '<i class="fa fa-plus"></i>';
-            html += '</button>';
+            html += '</a>';
             html += '</div>';
             
             $('.sub-keyword-list').append(html);
