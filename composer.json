@@ -22,8 +22,6 @@
             "database/seeds",
             "database/factories",
             "src/Entities",
-            "src/Exceptions",
-            "src/Models",
             "src/Providers",
             "src/Repositories",
             "src/Services"
