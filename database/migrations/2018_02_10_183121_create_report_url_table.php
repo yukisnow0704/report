@@ -21,7 +21,7 @@ class CreateReportUrlTable extends Migration
 
             $table->foreign('report_id')
                 ->references('id')
-                ->on('report');
+                ->on('reports');
             $table->foreign('url_id')
                 ->references('id')
                 ->on('urls');
@@ -35,6 +35,6 @@ class CreateReportUrlTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_url');
+        Schema::dropIfExists('report_url');
     }
 }
