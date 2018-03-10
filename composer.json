@@ -22,7 +22,6 @@
             "database/seeds",
             "database/factories",
             "src/Entities",
-            "src/Providers",
             "src/Repositories",
             "src/Services"
         ],
