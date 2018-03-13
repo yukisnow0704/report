@@ -42,14 +42,12 @@ class ReportService {
 
         // サブキーワードIDを取得
         $subKeywordRepository = App::make('\Src\Repositories\SubKeywordRepository');
-        $results['subkeywords'] = $reportRepository->getFromToken($results['report']['id']);
+        $results['subkeywords'] = $subKeywordRepository->getFromReportId($results['report']['id']);
 
         $keywordRepository = App::make('\Src\Repositories\KeywordRepository');
         $keywords = array();
         
-        foreach($results['report'] as $report) {
-            $keywords[$report['keyword_id']] = $keywordRepository->find($report['keyword_id']);
-        }
+        $keywords[$results['report']['keyword_id']] = $keywordRepository->find($results['report']['keyword_id']);
 
         foreach($results['subkeywords'] as $subkeyword) {
             $keywords[$subkeyword['keyword_id']] = $keywordRepository->find($subkeyword['keyword_id']);
@@ -59,7 +57,16 @@ class ReportService {
 
         // Urlの一覧を取得
         $reportUrlRepository = App::make('\Src\Repositories\ReportUrlRepository');
-        $results['urls'] = $reportUrlRepository->getFromToken($results['report']['id']);
+        $results['reportUrls'] = $reportUrlRepository->getFromReportId($results['report']['id']);
+
+        $urlRepository = App::make('\Src\Repositories\UrlRepository');
+        $urls = array();
+
+        foreach($results['reportUrls'] as $reportUrl) {
+            $urls[$reportUrl['url_id']] = $urlRepository->find($reportUrl['url_id']);
+        }
+
+        $results['urls'] = $urls;
 
         return $results;
 

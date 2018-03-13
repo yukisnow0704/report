@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App;
+use Log;
 use App\Http\Controllers\Controller;
 
 class AdminReportController extends Controller
@@ -26,6 +27,14 @@ class AdminReportController extends Controller
         $reportService = App::make('\Src\Services\ReportService');
         $results = $reportService->getFromToken($token);
 
-        return view('mock.report_store');
+        // return $results;
+
+        return view('report.admin_edit', [
+            'report' => $results['report'],
+            'keywords' => $results['keywords'],
+            'subKeywords' => $results['subkeywords'],
+            'reportUrls' => $results['reportUrls'],
+            'urls' => $results['urls']
+        ]);
     }
 }

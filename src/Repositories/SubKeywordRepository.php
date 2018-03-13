@@ -9,7 +9,7 @@ class SubKeywordRepository {
 
     public function getFromReportId($id) {
 
-        $entities = \Src\Entities\ReportSubKeyword::where('report_id', $id);
+        $entities = \Src\Entities\ReportSubKeyword::where('report_id', $id)->get();
 
         return $entities;
     }
