@@ -25,6 +25,14 @@
     <script src="{{ asset('js/ui-nav.js') }}"></script>
     <script src="{{ asset('js/ui-toggle.js') }}"></script>
     <script src="{{ asset('js/ui-client.js') }}"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    </script>
 </head>
 <body>
 

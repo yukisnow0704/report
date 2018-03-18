@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-12" style="margin-top:10px;">
                                 <label class="col-md-6">完了</label>
-                                <select name="complate">
+                                <select name="complate" class="complate">
                                     @if($report['complate_at'])
                                         <option value="0">未完了</option>
                                         <option value="1" selected>完了</option>
@@ -97,32 +97,55 @@
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>
-                        <div class="panel-body">
-                            <div class="col-md-12 big-head1">
-                                <div class="form-group col-md-8">
-                                    <label class="col-md-12">大見出し1</label>
-                                    <input type="text" name="big-title1" class="col-md-12">
-                                    <div class="col-md-12" style="margin-top:20px;">
-                                        <label class="col-md-6">説明</label>
-                                        <textarea name='big-content1' class="col-md-6"></textarea>
+                        <div class="panel-body context">
+                        @if($report['main'])
+                        <?php $bigcount = 0; ?>
+                            @foreach($report['main'] as $big)
+                                <?php $bigcount++ ?>
+                                <div class="col-md-12 big-head{{ $bigcount }}">
+                                    <div class="form-group col-md-8">
+                                        <label class="col-md-12">大見出し{{ $bigcount }}</label>
+                                        <input type="text" name="title" class="big-title col-md-12" value="{{ $big['title'] }}">
+                                        <div class="col-md-12" style="margin-top:20px;">
+                                            <label class="col-md-6">説明</label>
+                                            <textarea class="big-context col-md-6">{{ $big['context'] }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="hidden" class="big-head-number" value="{{ $bigcount }}">
+                                        <div class="col-md-9" style="margin-top:20px;">
+                                            <a href="javascript:void(0);" class="btn btn-danger remove-big-head">
+                                                <i class="fa fa-minus"></i> 大見出し削除
+                                            </a>
+                                        </div>
+                                        <div class="col-md-9" style="margin-top:20px;">
+                                            <a href="javascript:void(0);" class="btn btn-success add-middle-header">
+                                                <i class="fa fa-plus"></i> 中見出し追加
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group middle-head">
+                                    <?php $middlecount = 0; ?>
+                                    @foreach($big['middle'] as $middle)
+                                        <?php $middlecount++ ?>
+                                        <div class="form-group middle-head{{ $middlecount }} col-sm-12">
+                                            <div class="col-md-9">
+                                                <label class="col-md-12">中見出し{{ $middlecount }}</label>
+                                                <input type="text" name="middle-title" class="middle-title col-md-12" value="{{ $middle['title'] }}">
+                                                <label class="col-md-6">説明</label>
+                                                <textarea class="middle-context col-md-6">{{ $middle['context'] }}</textarea>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <a href="javascript:void(0);" class="btn btn-danger remove-middle-header">
+                                                    <i class="fa fa-minus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <input type="hidden" class="big-head-number" value="1">
-                                    <div class="col-md-9" style="margin-top:20px;">
-                                        <a href="javascript:void(0);" class="btn btn-danger remove-big-head">
-                                            <i class="fa fa-minus"></i> 大見出し削除
-                                        </a>
-                                    </div>
-                                    <div class="col-md-9" style="margin-top:20px;">
-                                        <a href="javascript:void(0);" class="btn btn-success add-middle-header">
-                                            <i class="fa fa-plus"></i> 中見出し追加
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="form-group middle-head">
-                                </div>
-                            </div>
+                            @endforeach
+                        @endif
                         </div>
                     </div>
 
@@ -131,11 +154,11 @@
                             参考記事
                         </div>
                         <div class="panel-body url-list">
-                            @if(count($reportUrls) > 0)
+                            @if(count($reportUrls) > 1)
                                 @foreach($reportUrls as $reportUrl)
                                 <div class="col-md-12" style="margin-top:10px;">
                                     <label class="col-md-3 ">URL</label>
-                                    <input type="text" name="url1" class="url1 col-md-6" value"{{ $urls[$reportUrl['url_id']]['url'] }}">
+                                    <input type="text" name="url" class="url col-md-6" value"{{ $urls[$reportUrl['url_id']]['url'] }}">
                                     <div class="col-md-3">
                                         <a href="javascript:void(0);" class="btn btn-danger remove-url">
                                             <i class="fa fa-minus"></i>
@@ -149,7 +172,7 @@
                             @else
                                 <div class="col-md-12" style="margin-top:10px;">
                                     <label class="col-md-3 ">URL</label>
-                                    <input type="text" name="url1" class="url1 col-md-6">
+                                    <input type="text" name="url" class="url col-md-6">
                                     <div class="col-md-3">
                                         <a href="javascript:void(0);" class="btn btn-danger remove-url">
                                             <i class="fa fa-minus"></i>
@@ -162,15 +185,14 @@
                             @endif
                         </div>
                     </div>                                        
-                    <button class="btn btn-success submit">
+                    <a href="javascript:void(0);" class="btn btn-success submit">
                         送信
-                    </button>
+                    </a>
                 </form>
             </div>
         </div>
     </div>
  
     <script src="{{ asset('js/report_store.js')}}"></script>
-
 
 @endsection

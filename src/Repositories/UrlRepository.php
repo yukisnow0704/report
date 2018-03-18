@@ -13,4 +13,20 @@ class UrlRepository {
 
         return $entity;
     }
+
+    public function getPost($url) {
+
+        $entities = \Src\Entities\Url::where('url', $url)->get();
+
+        if($entities->count() <= 0) {
+            $entity = \Src\Entities\Url::create([
+                'url' => $url,
+            ]);
+
+            return $entity;
+        }
+
+        return $entities[0];
+
+    }
 }

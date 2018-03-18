@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App;
 use Log;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AdminReportController extends Controller
@@ -13,8 +14,8 @@ class AdminReportController extends Controller
 
     public function index()
     {
-        $reportService = App::make('\Src\Services\ReportService');
-        $results = $reportService->getAll();
+        $adminReportService = App::make('\Src\Services\AdminReportService');
+        $results = $adminReportService->getAll();
 
         return view('report.list', [
             'reports' => $results['report'],
@@ -27,7 +28,12 @@ class AdminReportController extends Controller
         $reportService = App::make('\Src\Services\ReportService');
         $results = $reportService->getFromToken($token);
 
-        // return $results;
+        // Log::debug($results['reportUrls']);
+
+        if($results['report']['main']) {
+            $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
+            $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
+        }
 
         return view('report.admin_edit', [
             'report' => $results['report'],
@@ -36,5 +42,15 @@ class AdminReportController extends Controller
             'reportUrls' => $results['reportUrls'],
             'urls' => $results['urls']
         ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $values = $request->input('values');
+
+        $adminReportService = App::make('\Src\Services\AdminReportService');
+        $results = $adminReportService->update($id, $values);
+
+        return $values['context'];
     }
 }
