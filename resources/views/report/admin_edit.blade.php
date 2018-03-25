@@ -158,7 +158,7 @@
                                 @foreach($reportUrls as $reportUrl)
                                 <div class="col-md-12" style="margin-top:10px;">
                                     <label class="col-md-3 ">URL</label>
-                                    <input type="text" name="url" class="url col-md-6" value"{{ $urls[$reportUrl['url_id']]['url'] }}">
+                                    <input type="text" name="url" class="url col-md-6" value="{{ $urls[$reportUrl['url_id']]['url'] }}">
                                     <div class="col-md-3">
                                         <a href="javascript:void(0);" class="btn btn-danger remove-url">
                                             <i class="fa fa-minus"></i>
@@ -193,6 +193,6 @@
         </div>
     </div>
  
-    <script src="{{ asset('js/report_store.js')}}"></script>
+    <script src="{{ asset('js/report_store_admin.js')}}"></script>
 
 @endsection

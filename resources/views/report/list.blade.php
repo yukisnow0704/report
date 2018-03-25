@@ -14,7 +14,8 @@
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <a href="/report/import" class="btn btn-success">記事インポート</a>
-                        <button class="btn btn-success">一覧DL</button>
+                        <a href="/report/csv" class="btn btn-success" download="reports.csv">一覧DL</a>
+                        <a href="/report/csv" class="btn btn-success" target="_blank">一覧DL(tab)</a>
                         <a href="/report/export" class="btn btn-success">記事DL</a>
                     </div>
                     <!-- <div class="table-responsive"> -->
@@ -72,8 +73,8 @@
                                     <td>{{ $report['updated_at'] }}</td>
                                     <td>{{ $report['complate_at'] }}</td>
                                     <td>
-                                        <a href="/report/{{ $report['token'] }}" class="btn btn-success">編集</a>
-                                        <a href="/report/{{ $report['token'] }}" class="btn btn-danger">削除</a>
+                                        <a href="/report/edit/{{ $report['token'] }}" class="btn btn-success">編集</a>
+                                        <!-- <a href="/report/{{ $report['token'] }}" class="btn btn-danger">削除</a> -->
                                     </td>
                                 </tr>
                             @endforeach

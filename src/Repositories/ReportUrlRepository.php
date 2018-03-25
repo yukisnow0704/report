@@ -9,7 +9,7 @@ class ReportUrlRepository {
 
     public function getFromReportId($id) {
 
-        $entities = \Src\Entities\ReportUrl::where('report_id', $id);
+        $entities = \Src\Entities\ReportUrl::where('report_id', $id)->get();
 
         return $entities;
     }

@@ -80,32 +80,13 @@ $(".panel-body").on("click", '.remove-big-head', function() {
     $(this).parent().parent().parent().remove();
 });
 
-$(".panel-body").on("click", '.add-keyword',function() {
-    var key = $('.sub-keyword-list').children().length + 1;
 
-    var html = '<div class="col-md-12" style="margin-top:10px;">';
-    html += '<input type="text" name="keyword' + key + '" class="keyword col-md-9">';
-    html += '<div class="col-md-3">';
-    html += '<a href="javascript:void(0);" type="delete" class="btn btn-danger remove-keyword">';
-    html += '<i class="fa fa-minus"></i>';
-    html += '</a>';
-    html += '<a href="javascript:void(0);" type="add" class="btn btn-success add-keyword" style="margin-left:5px;">';
-    html += '<i class="fa fa-plus"></i>';
-    html += '</a>';
-    html += '</div>';
-    
-    $('.sub-keyword-list').append(html);
-});
-$(".panel-body").on("click", '.remove-keyword', function() {
-    $(this).parent().parent().remove();
-});
-
-var keyword = $('.keyword').val();
+var keyword = $('.keyword-main').text();
 var subkeywords = keyword;
 subkeywords += '\n\n';
 
 $('.sub-keyword-list').children().each(function() {
-    var subkeyword = $(this).find('.keyword').val();
+    var subkeyword = $(this).text();
     subkeywords += subkeyword;
     subkeywords += '\n';
 });
@@ -114,11 +95,6 @@ $('#tmp-memo').val(subkeywords);
 
 $('.submit').click(function() {
     var id = $('.id').val();
-    var filename = $('.filename').val();
-    var no = $('.no').val();
-    var user_id = $('.user_id').val();
-    var complate = $('.complate').val();
-    var keyword = $('.keyword').val();
     var title = $('.title').val();
 
     // context
@@ -149,12 +125,6 @@ $('.submit').click(function() {
         count++;
     });
 
-    var subkeywords = [];
-    $('.sub-keyword-list').children().each(function() {
-        var subkeyword = $(this).find('.keyword').val();
-        subkeywords.push(subkeyword);
-    });
-
     var urls = [];
     $('.url-list').children().each(function() {
         var url = $(this).find('.url').val();
@@ -162,25 +132,17 @@ $('.submit').click(function() {
     });
 
     var values = {};
-    values.filename = filename;
-    values.no = no;
-    values.user_id = user_id;
-    values.complate = complate;
-    values.keyword = keyword;
     values.title = title;
     values.context = JSON.stringify(context);
-    values.subkeywords = subkeywords;
     values.urls = urls;
     
-    
     $.ajax({
-        'url': '/report/update/' + id,
+        'url': '/contact/report/update/' + id,
         'type':'POST',
         'dataType': 'json',
         'data' : {'values' : values }
     }).done(function(data) {
         alert("更新が完了しました。");
-        location.href('/report')
     }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
         alert("エラーが発生しました。");
     })

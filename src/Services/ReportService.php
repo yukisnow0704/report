@@ -72,4 +72,27 @@ class ReportService {
 
 
     }
+
+    public function update($id, $values) {
+        $results = null;
+
+        // urlを更新
+        $urlRepository = App::make('\Src\Repositories\UrlRepository');
+        $reportUrlRepository = App::make('\Src\Repositories\ReportUrlRepository');
+        foreach($values['urls'] as $url) {
+            if($url) {
+                $urlEntity = $urlRepository->getPost($url);
+                $reporturl = $reportUrlRepository->getPost($id, $urlEntity->id);
+            }
+        }
+
+        // $keywordRepository = App::make('\Src\Repositories\KeywordRepository');
+        // $keywordEntity = $keywordRepository->getPost($values['keyword']);
+        // $values['keyword_id'] = $keywordEntity->id;
+
+        // 本体を更新
+        $reportRepository = App::make('\Src\Repositories\ReportRepository');
+        $results = $reportRepository->update($id, $values);
+
+    }
 }

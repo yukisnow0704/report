@@ -23,6 +23,23 @@ class ReportRepository {
 
     }
 
+    public function update($id, $values) {
+        Log::debug($id);
+
+        $entity = \Src\Entities\Report::find($id);
+
+        if ($entity == null) {
+            throw new \Exception("レコードが見つかりません。");
+        }
+
+        //下記以外は更新不可
+        // TODO USER_ID
+        $entity->main = json_encode($values['context']);
+        $entity->title = $values['title'];
+
+        $entity->save();
+    }
+
     public function adminUpdate($id, $values) {
 
         $entity = \Src\Entities\Report::find($id);

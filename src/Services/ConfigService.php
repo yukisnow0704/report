@@ -125,4 +125,3 @@ class ConfigService {
         throw new ConnectErrorException('No valid proxy found');
     }
 }
-a

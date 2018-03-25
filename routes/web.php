@@ -31,10 +31,10 @@ Route::get('/report', [
     'uses' => 'AdminReportController@index'
 ]);
 
-// 担当構成編集
-Route::get('/report/{token}', [
-    'as' => 'reportStore',
-    'uses' => 'AdminReportController@edit'
+// CSVDL
+Route::get('/report/csv', [
+    'as' => 'reportCsv',
+    'uses' => 'AdminReportController@getCsv'
 ]);
 
 // 構成編集画面
@@ -43,12 +43,23 @@ Route::post('/report/update/{id}', [
     'uses' => 'AdminReportController@update'
 ]);
 
+// 担当構成編集
+Route::get('/report/edit/{token}', [
+    'as' => 'reportStore',
+    'uses' => 'AdminReportController@edit'
+]);
+
+// 構成編集画面
+Route::post('/contact/report/update/{id}', [
+    'as' => 'reportStore',
+    'uses' => 'ReportController@update'
+]);
+
 // 構成編集画面
 Route::get('/contact/report/{token}', [
     'as' => 'reportStore',
     'uses' => 'ReportController@edit'
 ]);
-
 
 // インポート画面
 Route::get('/report/import', [
