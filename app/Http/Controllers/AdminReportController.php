@@ -200,7 +200,7 @@ class AdminReportController extends Controller
 
                 $mainKeywordEntity = $keywordRepository->getPost($data['キーワード']);
 
-                $report = array();
+
                 
                 $report['id'] = null;
                 $report['filename'] = $fileName;
@@ -210,12 +210,12 @@ class AdminReportController extends Controller
                 $report['request_writer'] = $data['依頼ライター'];
                 $report['request_date'] = $data['ライター発注日'];
                 $report['title'] = $data['タイトル'];
-                $report['main'] = json_encode($data);
+                $report['main'] = json_encode($data['記事概要']);
                 $report['import_at'] = date("Y-m-d H:i:s");
+                $report['token'] = str_random(40);
 
                 // TODO ユーザー管理
                 $report['user_id'] = 1;
-                $report['token'] = 0;
 
                 $reportEntity = $reportRepository->getPost($report);
 
