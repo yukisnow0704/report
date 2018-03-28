@@ -8,7 +8,7 @@ class Report extends Model
 {
     protected $table = 'reports';
 
-    protected $guarded = array();
+    protected $guarded = array('id');
     const ENTITY_TITLE = '構成';
     public static $rules = array();
 

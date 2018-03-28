@@ -40,6 +40,21 @@ class ReportRepository {
         $entity->save();
     }
 
+    public function getPost($report) {
+
+        $report_id = $report['id'];
+            $entities = \Src\Entities\report::where('id', $report_id)->get();
+
+        if($entities->count() <= 0) {
+            $entity = \Src\Entities\report::create($report);
+
+            return $entity;
+        }
+
+        return $entities[0];
+
+    }
+
     public function adminUpdate($id, $values) {
 
         $entity = \Src\Entities\Report::find($id);

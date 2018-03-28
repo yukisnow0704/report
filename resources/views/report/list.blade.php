@@ -13,7 +13,7 @@
                         構成一覧
                     </div>
                     <div class="col-md-12 col-sm-12">
-                        <a href="/report/import" class="btn btn-success">記事インポート</a>
+                        <a href="/report/import" class="btn btn-success">構成インポート</a>
                         <a href="/report/csv" class="btn btn-success" download="reports.csv">一覧DL</a>
                         <a href="/report/csv" class="btn btn-success" target="_blank">一覧DL(tab)</a>
                         <a href="/report/export" class="btn btn-success">記事DL</a>
