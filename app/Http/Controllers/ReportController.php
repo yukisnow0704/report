@@ -21,7 +21,7 @@ class ReportController extends Controller
 
         if($results['report']['main']) {
             $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
-            $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
+            // $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
         }
 
 

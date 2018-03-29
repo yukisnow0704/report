@@ -99,7 +99,7 @@ class AdminReportController extends Controller
 
         if($results['report']['main']) {
             $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
-            $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
+            // $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
         }
 
         return view('report.admin_edit', [
@@ -127,12 +127,12 @@ class AdminReportController extends Controller
             $file = $request->csvfile;
     
             if($file == null)
-                throw new Exception('！！！ファイルを選択してください！！！');
+                throw new Exception('ファイルを選択してください。');
                 
             $fileName = $file->getClientOriginalName();
             $fileExtension = $file->getClientOriginalExtension();
             if($fileExtension != 'csv')
-                throw new Exception('！！！CSVファイルのみアップロード可能です！！！');
+                throw new Exception('CSVファイルのみアップロード可能です。');
             
             $text = file_get_contents($file->path());
             
@@ -157,7 +157,7 @@ class AdminReportController extends Controller
             
             // TODO csvの制御ライブラリの調査実装。
             // 現状上手く動かないので不完全ながら手書きでよしなに。
-            // 現象：理由不明でカンマがエスケープされる。
+            // 現象：理由不明でカンマが一部エスケープされる。
 
             // $config = new LexerConfig();
             // $config->setDelimiter(",");
@@ -196,12 +196,13 @@ class AdminReportController extends Controller
             $reportRepository = App::make('\Src\Repositories\ReportRepository');
             $reportUrlRepository = App::make('\Src\Repositories\ReportUrlRepository');
             $urlRepository = App::make('\Src\Repositories\UrlRepository');
+
             foreach($datas as $data){
 
                 $mainKeywordEntity = $keywordRepository->getPost($data['キーワード']);
 
+                $outlines = $this->parseOutline($data['記事概要']);
 
-                
                 $report['id'] = null;
                 $report['filename'] = $fileName;
                 $report['no'] = $data['No'];
@@ -210,7 +211,7 @@ class AdminReportController extends Controller
                 $report['request_writer'] = $data['依頼ライター'];
                 $report['request_date'] = $data['ライター発注日'];
                 $report['title'] = $data['タイトル'];
-                $report['main'] = json_encode($data['記事概要']);
+                $report['main'] = json_encode($outlines);
                 $report['import_at'] = date("Y-m-d H:i:s");
                 $report['token'] = str_random(40);
 
@@ -270,6 +271,69 @@ class AdminReportController extends Controller
 
         return redirect('/report/import')->with('csv_message', '正常に完了しました。');
 
+    }
+    public function parseOutline($outlineStr)
+    {
+        $results = array();
+
+        // try{
+
+            $lines = explode("\n", $outlineStr); 
+            $big = null;
+            foreach($lines as $line){
+                
+                $line = trim($line);
+
+                if(preg_match("/^\"?【大見出し/",$line) || preg_match("/^≪中見出し/",$line)){
+
+                    $title = mb_substr($line, mb_strpos($line,"：")+1, (mb_strlen($line)-(mb_strpos($line,"：")+1)-1));
+                    
+                    if(preg_match("/^\"?【大見出し/",$line)){
+    
+                        if($big !== null){
+                            $results[] = $big;
+                        }
+                        $big = array(
+                            'title' => $title,
+                            'context' =>"",
+                            'middle' => array()
+                        );
+                    }else{
+                        $big['middle'][] = array(
+                            'title' => $title,
+                            'context' =>""
+                        );
+                    }
+
+                }else{
+
+                    $arrayCount = count($big['middle']);
+
+                    if($arrayCount === 0){
+                        $big['context'] = $line;
+                    }else{
+                        $arrayNo = $arrayCount - 1;
+                        if($big['middle'][$arrayNo]['context'] === ""){
+                            $big['middle'][$arrayNo]['context'] = $line;
+                        }else{
+                            $big['middle'][$arrayNo]['context'] = $big['middle'][$arrayNo]['context'] ."\n" .$line;
+                        }
+                    }
+                }
+
+
+
+            }
+
+            $results[] = $big;
+
+            return $results; 
+
+        // }catch(Exception $e){
+            
+        // }
+
+        
     }
 
 }
