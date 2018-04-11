@@ -43,6 +43,12 @@ Route::post('/report/importcsv', [
     'uses' => 'AdminReportController@importcsv'
 ]);
 
+// 構成エクスポート
+Route::get('/report/exportcsv', [
+    'as' => 'exportcsv',
+    'uses' => 'AdminReportController@exportcsv'
+]);
+
 // 構成編集画面
 Route::post('/report/update/{id}', [
     'as' => 'reportStore',

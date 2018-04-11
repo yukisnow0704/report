@@ -14,6 +14,18 @@ class ReportRepository {
 
         return $entities;
     }
+    
+    public function getWithDateRange($month, $year) {
+
+        if (strlen($month) == 1){
+            $month = "0". $month;
+        }
+        
+        $query = $year. "-". $month. "%";
+        $entities = \Src\Entities\Report::whereRaw("import_at Like '$query%'")->get();
+
+        return $entities;
+    }
 
     public function getFromToken($token) {
 

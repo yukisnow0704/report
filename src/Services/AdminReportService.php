@@ -30,6 +30,28 @@ class AdminReportService {
 
     }
 
+    public function getWithDateRange($month, $year) {
+
+        $results = null;
+
+        $results = array();
+
+        $reportRepository = App::make('\Src\Repositories\ReportRepository');
+        $results['report'] = $reportRepository->getWithDateRange($month, $year);
+
+        $keywordRepository = App::make('\Src\Repositories\KeywordRepository');
+        $keywords = array();
+        
+        foreach($results['report'] as $report) {
+            $keywords[$report['keyword_id']] = $keywordRepository->find($report['keyword_id']);
+        }
+
+        $results['keyword'] = $keywords;
+
+        return $results;
+
+    }
+
     public function update($id, $values) {
         $results = null;
 
