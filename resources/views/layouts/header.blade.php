@@ -10,7 +10,7 @@
     <i class="glyphicon glyphicon-align-justify"></i>
   </button>
   <!-- brand -->
-  <a href="/app" class="navbar-brand text-lt">
+  <a href="/report" class="navbar-brand text-lt">
     <img src="{{ asset('img/logo.png') }}" alt="." class="">
     <span class="hidden-folded m-l-xs">Laravel</span>
   </a>
