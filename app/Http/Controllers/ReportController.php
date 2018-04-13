@@ -14,16 +14,19 @@ class ReportController extends Controller
 
     public function edit($token)
     {
-        $reportService = App::make('\Src\Services\ReportService');
-        $results = $reportService->getFromToken($token);
+        try{
+            $reportService = App::make('\Src\Services\ReportService');
+            $results = $reportService->getFromToken($token);
 
-        // Log::debug($results['reportUrls']);
+            // Log::debug($results['reportUrls']);
 
-        if($results['report']['main']) {
-            $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
-            $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
+            if($results['report']['main']) {
+                $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
+                $results['report']['main'] = json_decode(str_replace('&quot;','"',$results['report']['main']),true);
+            }
+        } catch(\Throwable $th) {
+            return view('layouts.404');
         }
-
 
         // return $results;
         return view('report.staff_edit', [

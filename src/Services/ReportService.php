@@ -40,6 +40,11 @@ class ReportService {
         $reportRepository = App::make('\Src\Repositories\ReportRepository');
         $results['report'] = $reportRepository->getFromToken($token);
 
+        Log::debug(count($results['report']) );
+        if(count($results['report']) <= 0) {
+            throw new Exception('tokenの結果がありません');
+        }
+
         // サブキーワードIDを取得
         $subKeywordRepository = App::make('\Src\Repositories\SubKeywordRepository');
         $results['subkeywords'] = $subKeywordRepository->getFromReportId($results['report']['id']);

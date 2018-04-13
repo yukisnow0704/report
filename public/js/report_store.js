@@ -7,15 +7,33 @@ $(".panel-body").on("click", '.add-middle-header',function() {
     var key = $('.big-head' + bigKey + ' > .middle-head' ).children().length;
     var middleKey = parseInt(key) + 1;
     var html = '<div class="form-group middle-head' + middleKey + ' col-sm-12">';
-    html += '<div class="col-md-9">';
+    html += '<div class="col-md-8">';
     html += '<label class="col-md-12">中見出し' + middleKey + '</label>';
     html += '<input type="text" name="middle-title" class="middle-title col-md-12">';
     html += '<label class="col-md-6">説明</label>';
     html += '<textarea class="middle-context col-md-6"></textarea>';
     html += '</div>';
-    html += '<div class="col-md-3">';
+    html += '<div class="col-md-1">';
     html += '<a href="javascript:void(0);" class="btn btn-danger remove-middle-header">';
     html += '<i class="fa fa-minus"></i>';
+    html += '</a>';
+    html += '</div>';
+    html += '<div class="col-md-3">';
+    html += '<a href="javascript:void(0);" class="shotcat-input btn btn-default">';
+    html += '見出し説明';
+    html += '<input type="hidden" class="add-context" value="大見出し' + bigKey + 'では、">';
+    html += '</a>';
+    html += '<a href="javascript:void(0);" class="shotcat-input btn btn-default">';
+    html += '使用KW';
+    html += '<input type="hidden" class="add-context" value="また下記のキーワードを使用してください。">';
+    html += '</a>';
+    html += '<a href="javascript:void(0);" class="shotcat-input btn btn-default">';
+    html += '記載内容';
+    html += '<input type="hidden" class="add-context" value="を記載してください。 ">';
+    html += '</a>';
+    html += '<a href="javascript:void(0);" class="shotcat-input btn btn-default">';
+    html += '説明内容';
+    html += '<input type="hidden" class="add-context" value="を説明してください。 ">';
     html += '</a>';
     html += '</div>';
     html += '</div>';
@@ -148,4 +166,13 @@ $('.submit').click(function() {
     })
 });  
 
+$(".panel-body").on("click", '.shotcat-input',function() {
+    var add_text = $(this).find('.context').val();
+
+    var text = $(this).parent().parent().find('.middle-context').val();
+    text += add_text;
+
+    $(this).parent().parent().find('.middle-context').val(text);
+    
+});
 })
