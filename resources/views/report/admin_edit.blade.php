@@ -129,15 +129,33 @@
                                     @foreach($big['middle'] as $middle)
                                         <?php $middlecount++ ?>
                                         <div class="form-group middle-head{{ $middlecount }} col-sm-12">
-                                            <div class="col-md-9">
+                                            <div class="col-md-8">
                                                 <label class="col-md-12">中見出し{{ $middlecount }}</label>
                                                 <input type="text" name="middle-title" class="middle-title col-md-12" value="{{ $middle['title'] }}">
                                                 <label class="col-md-6">説明</label>
                                                 <textarea class="middle-context col-md-6">{{ $middle['context'] }}</textarea>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-1">
                                                 <a href="javascript:void(0);" class="btn btn-danger remove-middle-header">
                                                     <i class="fa fa-minus"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <a href="javascript:void(0);" class="shotcat-input btn btn-default">
+                                                    見出し説明
+                                                    <input type="hidden" class="add-context" value="大見出し{{ $bigcount }}では、">
+                                                </a>
+                                                <a href="javascript:void(0);" class="shotcat-input btn btn-default">
+                                                    使用KW
+                                                    <input type="hidden" class="add-context" value="また下記のキーワードを使用してください。">
+                                                </a>
+                                                <a href="javascript:void(0);" class="shotcat-input btn btn-default">
+                                                    記載内容
+                                                    <input type="hidden" class="add-context" value="を記載してください。 ">
+                                                </a>
+                                                <a href="javascript:void(0);" class="shotcat-input btn btn-default">
+                                                    説明内容
+                                                    <input type="hidden" class="add-context" value="を説明してください。 ">
                                                 </a>
                                             </div>
                                         </div>
