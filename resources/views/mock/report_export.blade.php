@@ -17,7 +17,7 @@
                             <!-- <input type="date" value="" name="startDate" class="startDate" style="margin:10px;"> ~ <input type="date" value="" name="endDate" class="endDate" style="margin:10px;"> -->
                                 <div class="row" style="display:inline-flex">
                                     <div class="col-md-2">
-                                        <select id="year" class="form-control" name="year">
+                                        <select id="year" class="form-control" name="year" style="width:100px;">
                                             <option value="">年</option>
                                             @for ($i = 2017; $i <= 2030; $i++)
                                             <option value="{{ $i }}"@if(old('year') == $i) selected @endif>{{ $i }}</option>
@@ -25,7 +25,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-2">
-                                        <select id="month" class="form-control" name="month">
+                                        <select id="month" class="form-control" name="month" style="width:100px;">
                                             <option value="">月</option>
                                             @for ($i = 1; $i <= 12; $i++)
                                             <option value="{{ $i }}"@if(old('month') == $i) selected @endif>{{ $i }}</option>
